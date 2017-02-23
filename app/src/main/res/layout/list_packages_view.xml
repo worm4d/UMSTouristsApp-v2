@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative_layout"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="#ffffff">
+
+    <ImageView
+        android:id="@+id/list_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="SampleImage"
+        android:scaleType="centerCrop"
+        android:src="@drawable/package_museum"/>
+
+            <TextView
+                android:id="@+id/list_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3dp"
+                android:layout_alignParentBottom="true"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:background="#80000000"
+                android:text="Title"/>
+
+
+</RelativeLayout>

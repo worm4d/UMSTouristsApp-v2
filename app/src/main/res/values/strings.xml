@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">UMS Tourists App</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="add">Add</string>
+    <string name="remove">Remove</string>
+    <string name="imageview">ImageView</string>
+    <string name="delete_image">Delete ImageView</string>
+
+    <!-- Title string array -->
+    <string-array name="title">
+        <item>Taj Mahal</item>
+        <item>Hawa Mahal</item>
+        <item>Golden Temple</item>
+        <item>Shore Temple</item>
+        <item>Chhatrapati Shivaji Terminus</item>
+        <item>Lotus Temple</item>
+        <item>Victoria Memorial Hall</item>
+        <item>Brihadeeswarar Temple</item>
+        <item>Mahabodhi Temple</item>
+    </string-array>
+
+    <!-- Location string array -->
+    <string-array name="location">
+        <item>Agra</item>
+        <item>Jaipur</item>
+        <item>Amritsar</item>
+        <item>Bay of Bengal</item>
+        <item>Mumbai</item>
+        <item>New Delhi</item>
+        <item>Kolkata</item>
+        <item>Tamil Nadu</item>
+        <item>Patna</item>
+    </string-array>
+
+    <!-- Year string array -->
+    <string-array name="constructed_year">
+        <item>1632</item>
+        <item>1799 AD</item>
+        <item>1577</item>
+        <item>700–728 AD</item>
+        <item>May 1888</item>
+        <item>1987</item>
+        <item>1906</item>
+        <item>1010 CE</item>
+        <item>250 BCE</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="attraction_chancellor_hall">The Hall is the main venue for conferring degrees to UMS graduates. The shape of the hall is similar to a ‘Gong’, an important musical instrument among communities in Sabah. Historically, the gong has existed in Asia since the seventh century and apart from its function as a musical instrument, it serves as a communication tool for a larger number of ethnic groups in Sabah. The shape of the Hall is symbolic and is in line with the university’s motto ‘Strive to Excel’, to all four corners of the world. The Chancellor Hall is also the largest hall among the higher learning institutions in Malaysia and is able to accommodate up to 5,000 people at a single time.</string>
+    <string name="attraction_mosque">The UMS Mosque was launched on 29th November 2002 by his Excellency The Governor of Sabah, Tun Datuk Seri Panglima Haji Sakaran Bin Dandai, the first Chancellor of Universiti Malaysia Sabah. The UMS Mosque is the third largest mosque in the City of Kota Kinablau, after the Sabah State Mosque and the Kota Kinabalu City Mosque with a capacity of 10,000 at any time. The three-storey UMS Mosque is especially beautiful because it sits atop a higher ground with its main entrance facing Mount Kinabalu which gives one the feeling of calmness and serenity. What truly makes the UMS Mosque unique is when viewed along the Tanjung Lipat coastal road, UMS Mosque seems to be sitting among clouds.</string>
+    <string name="attraction_chancellery_building">The twin towers make up the Chancellery function as the main administration centre of UMS. The building is situated on top of a hill, directly opposite the UMS main gate. The two towers are joined by a gallery and is a symbol of understanding, unity, and the undisputed importance of knowledge sharing. The position of the building with the main gate creates an axis that is parallel with the direction of the ‘Kiblat’. If viewed from the direction of the South China Sea, one will be captivated by its truly unique beauty. The Chancellery building creates an elegant and peaceful picture from the direction, with the majestic Mount Kinabalu acting as a natural backdrop.</string>
+    <string name="attraction_clock_tower">The UMS Clock Tower is one of the ideals inspired by the Vice Chancellor of Universiti Malaysia Sabah, Professor Datuk Dr. Mohd Harun Abdullah, and was launched on  January 1st 2014. The Clock Tower is the university’s pride, as it is the very first clock tower to be built among the public institutions of higher learning and is two-and-a-half stories in height. What makes the UMS Clock Tower even more unique is the material used to build the tower, which will be white marble. On the front of the clock tower will be an engraving of the surah Al-‘Asr, which is about the importance of time.</string>
+    <string name="attraction_research_gallery">UMS Research Gallery was established with the aim of exhibiting to the public the academic excellence and research achievement of the UMS academics in various fields. These include Engineering, Science and Technology, Economics and Business, Fine Arts, Social Sciences and others. The Gallery is in fact a ‘Showcase’ of the niche research activities of UMS academics from the various Faculties, Research Institutes and Units. The exhibits comprise research projects, which are ongoing, and which had won recognition awards nationally or internationally.</string>
+    <string name="attraction_aquarium_and_museum">Located at the scenic seafront, the UMS Aquarium and Museum houses colourful and beautiful marine life.  Arrangements inside the aquarium section display ecosystems as complex communities of organisms interacting in their environment for a unique learning experience.  The excellent education tools develop an understanding of the interconnectedness of all living things and awareness that the sea is an integral part of our existence, needing protection. The atrium leads into a deep dive diorama that gives a visual sensation of being beneath the waves and at the sea floor in the midst of rich marine biodiversity in an environment of dark deep sea cave and ship wrecks that tell a tale. Visitors experience a lively atmosphere in the aquarium when they are face to face with the ocean life and are entertained by unique behaviour of living corals, clams, sea cucumbers, sea urchins, shrimp, lobster, fish and turtle among other groups.  This produces admiration and a passionate love for marine life. The museum section offers close viewing of the preserved remains of marine flora and fauna, including seaweeds, corals, turtles and marine mammals. A mangrove walk area reminds visitors of the need to conserve and rehabilitate this remarkable coastal vegetation.</string>
+    <string name="attraction_museum">The purpose of the Museum is reflected through the modest but invaluable collection of exhibits and artefacts that is histories as well as symbolic to UMS. It is a portrayal of the efforts, contribution and sacrifices made throughout the years by various authorities and individuals. From the numerous photographs, displayed, historically momentous events in the likes of the auspicious \"Beaufort Gathering\" the official launching ceremony by the former Prime Minister of Malaysia, Tun Dr.Mahathir Mohamad, the many stages of infrastructural development, the inaugural and subsequent convocations as well as the royal commemorative convocation ceremony, exult expansion of the University as an icon of socioeconomics and educational advancement in the State of Sabah. On a similar mode, exhibits such as the portraits of the founding members and significant individual, mementos and a vast array of other displays including the detailed scale model of the University Campus, graduation/ academic gowns, and congratulatory salutations from internationally renowned institutions of higher learning, personify every phase of progress and development of the University, from the beginning to the present day.  Apart from charting the decade-long achievements of the University, the Museum serves to instil a sense of belonging and pride, not only amongst the campus community, but also the people of Sabah and Malaysia as whole. It is established to inspire and cultivate values of excellences for the intellectual, spiritual and emotional benefits of the future generations. True to the role of UMS as a university of the people, by people, for the people, the UMS Museum symbolizes the University\'s spirit of excellence, soul of existence, voice of conscience, source of aspiration, and life within its walls.</string>
+    <string name="attraction_medical_museum">The Medical Museum is one of many attractions that can be found in Universiti Malaysia Sabah (UMS). The museum is managed by the Faculty of Medicine and Health Science (FMHS) and was officiated on the 14th of April 2010. The Medical Museum was an inspiration of our first Medical Dean, Professor Dr Osman Ali, with a vision to provide general knowledge about the human body to visitors. The museum boasts a huge collection of anatomical models (specimens and mannequins) which covers the 10 systems in our human body namely: \\\\n 1.Urinary and Reproductive System \\\\n 2.Nervous and Endocrine System Blood \\n3.Lymphatic System \\n4.Gastrointestinal System \\n5.Cell Tissue and Metabolism \\n6.Musculoskeletal System \\n7.Cardiovascular System \\n8.Skin \\n9.Microbiology and the Respiratory System.  One of the most fascinating collections is a full-size anatomical human being preserved using plastination technique. This form of preservation is rarely seen, and visitors will surely have a memorable visit.</string>
+    <string name="runtime_permissions_txt">Allow to use Location Service?</string>
+
+</resources>
