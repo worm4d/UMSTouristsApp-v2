@@ -41,5 +41,9 @@ dependencies {
     compile 'info.hoang8f:fbutton:1.0.5'
     compile 'com.iravul.swipecardview:swipecardview:1.0.0'
     compile 'com.android.support:support-v4:24.2.1'
+    compile ('com.mikepenz:materialdrawer:5.8.1@aar') {
+        transitive = true
+    }
+
     testCompile 'junit:junit:4.12'
 }

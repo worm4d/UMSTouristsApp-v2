@@ -11,8 +11,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
@@ -23,6 +30,7 @@ public class MainActivity extends RuntimePermissionsActivity{
 
     Button newAttraction, newFacility, newAdmin, newPackage, newEVIC;
     Button camera, map;
+    ImageView menu;
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
@@ -45,6 +53,36 @@ public class MainActivity extends RuntimePermissionsActivity{
         newEVIC = (Button) findViewById(R.id.main_evic);
         camera = (Button) findViewById(R.id.main_camera);
         map = (Button) findViewById(R.id.main_map);
+        menu = (ImageView) findViewById(R.id.main_menu);
+
+        final PrimaryDrawerItem item1 = new PrimaryDrawerItem().withName("Home");
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withName("Settings");
+        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withName("Help");
+        PrimaryDrawerItem item4 = new PrimaryDrawerItem().withName("Contact");
+        final PrimaryDrawerItem item5 = new PrimaryDrawerItem().withName("Exit");
+
+
+        new DrawerBuilder()
+                .withActivity(MainActivity.this)
+                .withActionBarDrawerToggle(true)
+                .withActionBarDrawerToggleAnimated(true)
+                .addDrawerItems(item1,item2,item3,item4,item5)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        item5.withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                            @Override
+                            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                                onBackPressed();
+                                return false;
+                            }
+                        });
+
+                        return false;
+                    }
+                })
+                .build();
+
 
         newAttraction.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +150,13 @@ public class MainActivity extends RuntimePermissionsActivity{
             }
         });
 
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
+
 
     }
 
@@ -153,6 +198,32 @@ public class MainActivity extends RuntimePermissionsActivity{
         alert11.show();
 
     }
+
+//    private void clickMenu() {
+//        //if you want to update the items at a later time it is recommended to keep it in a variable
+//        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("home");
+//        SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName("settings");
+//
+////create the drawer and remember the `Drawer` result object
+//        Drawer result = new DrawerBuilder()
+//                .withActivity(this)
+//                .withTranslucentStatusBar(false)
+//                .withActionBarDrawerToggle(false)
+//                .addDrawerItems(
+//                        item1,
+//                        new DividerDrawerItem(),
+//                        item2,
+//                        new SecondaryDrawerItem().withName("settings")
+//                )
+//                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+//                    @Override
+//                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+//                        // do something with the clicked item :D
+//                        return false;
+//                    }
+//                })
+//                .build();
+//    }
 
     private void init() {
 
