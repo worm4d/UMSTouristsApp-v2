@@ -45,7 +45,5 @@ dependencies {
         transitive = true
     }
 
-    compile 'com.github.lawloretienne:imagegallery:0.1.0'
-
     testCompile 'junit:junit:4.12'
 }
