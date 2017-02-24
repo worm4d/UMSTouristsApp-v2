@@ -1,7 +1,7 @@
 package com.example.sun.umstouristsapp;
 
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -10,11 +10,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+
 public class Attraction_chancellor_hall extends AppCompatActivity {
 
     private TextView detailsTxt;
     private ImageView backBtn;
     private Button map, gallery;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class Attraction_chancellor_hall extends AppCompatActivity {
     }
 
     private void setUpListener() {
+
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,12 +55,8 @@ public class Attraction_chancellor_hall extends AppCompatActivity {
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Attraction_chancellor_hall.this);
-                alertDialogBuilder.setTitle("Error");
-                alertDialogBuilder.setMessage("No Image Found");
-                alertDialogBuilder.setIcon(R.drawable.ic_error_black_24dp);
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
+                Intent intent = new Intent(Attraction_chancellor_hall.this, Attraction_chancellor_hall_gallery.class);
+                startActivity(intent);
             }
         });
 

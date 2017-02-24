@@ -26,62 +26,85 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".Attraction"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Facility"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Attraction"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Facility"
+            android:screenOrientation="portrait" />
         <activity android:name=".Admin" />
-        <activity android:name=".Packages"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Packages"
+            android:screenOrientation="portrait" />
         <activity android:name=".SlidingImage_Adapter" />
         <activity android:name=".Attraction_Adapter" />
-        <activity android:name=".Attraction_chancellor_hall"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Attraction_mosque"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Attraction_clock_tower"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Attraction_chancellery"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Attraction_aquarium_and_museum"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".EvicUms"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Packages_gallery_museum"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Packages_nature_delight"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Packages_architecture_heritage"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Packages_sunset"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Packages_education_camp"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".MapsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Facility_cafe"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Facility_atm"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Facility_restroom"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Facility_busstop"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Attraction_aquarium_map"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Attraction_chancellery_map"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Attraction_chancellor_hall_map"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Attraction_clock_tower_map"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Attraction_mosque_map"
-            android:screenOrientation="portrait"/>
-
+        <activity
+            android:name=".Attraction_chancellor_hall"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Attraction_mosque"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Attraction_clock_tower"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Attraction_chancellery"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Attraction_aquarium_and_museum"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EvicUms"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Packages_gallery_museum"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Packages_nature_delight"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Packages_architecture_heritage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Packages_sunset"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Packages_education_camp"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MapsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Facility_cafe"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Facility_atm"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Facility_restroom"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Facility_busstop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Attraction_aquarium_map"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Attraction_chancellery_map"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Attraction_chancellor_hall_map"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Attraction_clock_tower_map"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Attraction_mosque_map"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Attraction_chancellor_hall_gallery"></activity>
     </application>
 
 </manifest>

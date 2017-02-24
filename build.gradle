@@ -18,7 +18,8 @@ allprojects {
         maven {
             url  "http://dl.bintray.com/iravul/maven"
         }
-    }
+        maven { url "https://jitpack.io" }    }
+
 }
 
 task clean(type: Delete) {

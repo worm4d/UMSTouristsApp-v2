@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_attraction_chancellor_hall_gallery"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.sun.umstouristsapp.Attraction_chancellor_hall_gallery">
+
+
+        <GridView
+            android:id="@+id/gridview_android_example"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:verticalSpacing="-100dp"
+            android:columnWidth="200dp"
+            android:gravity="center"
+            android:numColumns="auto_fit"
+            android:stretchMode="columnWidth" />
+
+
+</LinearLayout>
