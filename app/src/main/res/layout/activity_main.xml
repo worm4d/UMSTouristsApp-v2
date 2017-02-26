@@ -6,7 +6,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CDFFE6"
+    android:background="@color/colorBackground"
     tools:context="com.example.sun.umstouristsapp.MainActivity">
 
 
@@ -85,7 +85,7 @@
         android:drawableLeft="@drawable/ic_camera_alt_black_24dp"
         android:paddingLeft="24dp"
         android:gravity="center"
-        android:background="@color/colorGreenMint"
+        android:background="@drawable/button_secondary"
 
         android:text="Camera"/>
 
@@ -107,7 +107,7 @@
         android:drawableLeft="@drawable/ic_map_black_24dp"
         android:paddingLeft="24dp"
         android:gravity="center"
-        android:background="@color/colorGreenMint"
+        android:background="@drawable/button_secondary"
         android:text="Map"/>
 
     <!--<ImageView-->
@@ -132,7 +132,8 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:background="#84CF96"
+            android:background="@drawable/button_main"
+            android:textColor="#FFFFFF"
             android:text="ATTRACTION"/>
 
         <Button
@@ -141,7 +142,8 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_below="@id/main_attraction"
-            android:background="#84CF96"
+            android:background="@drawable/button_main"
+            android:textColor="#FFFFFF"
             android:text="FACILITY"/>
 
         <Button
@@ -151,7 +153,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_above="@id/main_attraction"
-            android:background="#84CF96"
+            android:background="@drawable/button_main"
+            android:textColor="#FFFFFF"
             android:text="UMS-EVIC"/>
 
         <Button
