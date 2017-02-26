@@ -17,7 +17,7 @@ public class Attraction_chancellor_hall_gallery extends AppCompatActivity {
     GridView androidGridView;
 
     Integer[] imageIDs = {
-            R.drawable.dc_1, R.drawable.dc_2, R.drawable.dc_3,
+            R.drawable.dc_1, R.drawable.dc_2, R.drawable.dc_3, R.drawable.dc_4, R.drawable.dc_5
     };
 
 
