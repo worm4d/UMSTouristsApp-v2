@@ -9,4 +9,5 @@
     <color name="colorGreenMint">#58D68D</color>
     <color name="colorButtonGreen">#01bb9b</color>
     <color name="colorBackground">#ccffbb</color>
+    <color name="colorHeader">#005502</color>
 </resources>

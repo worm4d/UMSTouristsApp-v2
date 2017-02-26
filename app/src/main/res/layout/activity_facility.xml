@@ -6,6 +6,7 @@
     android:id="@+id/activity_facility"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context="com.example.sun.umstouristsapp.Facility">
 
     <android.support.v7.widget.Toolbar
@@ -15,7 +16,7 @@
         android:minHeight="?attr/actionBarSize"
         android:elevation="4dp"
         android:layout_marginBottom="100dp"
-        android:background="#212121">
+        android:background="@color/colorHeader">
 
         <ImageView
             android:id="@+id/backImage"
@@ -50,66 +51,50 @@
             android:layout_height="match_parent"
             android:layout_centerInParent="true"/>
 
-        <info.hoang8f.widget.FButton
+        <Button
             android:id="@+id/dining_logo"
             android:layout_margin="12dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_toLeftOf="@id/center_view"
-            fbutton:buttonColor="@color/colorGreenMint"
-            fbutton:shadowColor="@color/colorGrey"
-            fbutton:shadowEnabled="true"
-            fbutton:shadowHeight="10dp"
-            fbutton:cornerRadius="30dp"
             android:drawableTop="@drawable/ic_local_dining_black_24dp"
             android:gravity="center"
+            android:background="@drawable/button_secondary"
             android:text="Cafe"/>
 
-        <info.hoang8f.widget.FButton
+        <Button
             android:id="@+id/restroom_logo"
             android:layout_margin="12dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_toRightOf="@id/center_view"
-            fbutton:buttonColor="@color/colorGreenMint"
-            fbutton:shadowColor="@color/colorGrey"
-            fbutton:shadowEnabled="true"
-            fbutton:shadowHeight="10dp"
-            fbutton:cornerRadius="30dp"
             android:drawableTop="@drawable/ic_wc_black_24dp"
             android:gravity="center"
+            android:background="@drawable/button_secondary"
             android:text="Rest Room"/>
 
-        <info.hoang8f.widget.FButton
+        <Button
             android:id="@+id/bank_logo"
             android:layout_margin="12dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_below="@id/dining_logo"
             android:layout_toLeftOf="@id/center_view"
-            fbutton:buttonColor="@color/colorGreenMint"
-            fbutton:shadowColor="@color/colorGrey"
-            fbutton:shadowEnabled="true"
-            fbutton:shadowHeight="10dp"
-            fbutton:cornerRadius="30dp"
             android:drawableTop="@drawable/ic_local_atm_black_24dp"
             android:gravity="center"
+            android:background="@drawable/button_secondary"
             android:text="ATM"/>
 
-        <info.hoang8f.widget.FButton
+        <Button
             android:id="@+id/bus_stop_logo"
             android:layout_margin="12dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_toRightOf="@id/center_view"
             android:layout_below="@id/restroom_logo"
-            fbutton:buttonColor="@color/colorGreenMint"
-            fbutton:shadowColor="@color/colorGrey"
-            fbutton:shadowEnabled="true"
-            fbutton:shadowHeight="10dp"
-            fbutton:cornerRadius="30dp"
             android:drawableTop="@drawable/ic_directions_bus_black_24dp"
             android:gravity="center"
+            android:background="@drawable/button_secondary"
             android:text="Bus Stop"/>
 
     </RelativeLayout>

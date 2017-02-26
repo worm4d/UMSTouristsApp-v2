@@ -12,7 +12,7 @@
         android:layout_height="80dip"
         android:minHeight="?attr/actionBarSize"
         android:elevation="4dp"
-        android:background="#212121">
+        android:background="@color/colorHeader">
 
         <ImageView
             android:id="@+id/backImage"
