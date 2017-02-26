@@ -55,36 +55,26 @@
         android:layout_centerInParent="true"
         />
 
-    <info.hoang8f.widget.FButton
+    <Button
         android:id="@+id/main_venues"
         android:layout_margin="12dp"
         android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@id/center_view"
-        fbutton:buttonColor="@color/colorGreenMint"
-        fbutton:shadowColor="@color/colorGrey"
-        fbutton:shadowEnabled="true"
-        fbutton:shadowHeight="5dp"
-        fbutton:cornerRadius="25dp"
         android:drawableLeft="@drawable/ic_pin_drop_black_24dp"
         android:paddingLeft="24dp"
         android:gravity="center"
         android:text="Venues"/>
 
 
-    <info.hoang8f.widget.FButton
+    <Button
         android:id="@+id/main_charge"
         android:layout_margin="12dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@id/center_view"
-        fbutton:buttonColor="@color/colorGreenMint"
-        fbutton:shadowColor="@color/colorGrey"
-        fbutton:shadowEnabled="true"
-        fbutton:shadowHeight="5dp"
-        fbutton:cornerRadius="25dp"
         android:drawableLeft="@drawable/ic_local_atm_black_24dp"
         android:paddingLeft="24dp"
         android:gravity="center"
