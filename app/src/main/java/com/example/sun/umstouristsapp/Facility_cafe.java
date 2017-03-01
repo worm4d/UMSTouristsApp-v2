@@ -84,7 +84,8 @@ public class Facility_cafe extends AppCompatActivity implements OnMapReadyCallba
                 6.046561, 116.126077)).title("Kolej Kediaman E Cafe").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
         Marker DKPBaruKiosk = googleMap.addMarker(new MarkerOptions().position(new LatLng(
                 6.045306, 116.129653)).title("DKP Baru Kiosk").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
-
+        Marker DKPLamaKiosk = googleMap.addMarker(new MarkerOptions().position(new LatLng(
+                6.032817, 116.114795)).title("DKP Lama Kiosk").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
 
 
 
@@ -96,6 +97,7 @@ public class Facility_cafe extends AppCompatActivity implements OnMapReadyCallba
         markersList.add(KampungECafe);
         markersList.add(MyKitchen);
         markersList.add(DKPBaruKiosk);
+        markersList.add(DKPLamaKiosk);
 
 
 

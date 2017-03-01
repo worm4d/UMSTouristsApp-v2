@@ -27,14 +27,21 @@
             android:src="@drawable/ic_menu_black_24dp"
             android:visibility="visible"/>
 
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:visibility="invisible"/>
+
     <TextView
         android:id="@+id/action_bar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:gravity="center_horizontal"
         android:text="UMS Tourist App"
         android:textColor="#FFFFFF"
-        android:textSize="24sp" />
+        android:textSize="24sp"/>
 
     </android.support.v7.widget.Toolbar>
 

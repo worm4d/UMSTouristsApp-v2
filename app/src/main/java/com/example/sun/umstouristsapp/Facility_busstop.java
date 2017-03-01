@@ -84,6 +84,10 @@ public class Facility_busstop extends AppCompatActivity implements OnMapReadyCal
                 6.036402, 116.121112)).title("Faculty of Computing and Informatic Bus Stop ").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
         Marker onestopBus = googleMap.addMarker(new MarkerOptions().position(new LatLng(
                 6.036442, 116.120924)).title("One Stop Centre Bus Stop").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
+        Marker twinstowerBus = googleMap.addMarker(new MarkerOptions().position(new LatLng(
+                6.035894, 116.116762)).title("Chancellery Building Bus Stop").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
+
+
 
         /**Put all the markers into arraylist*/
         markersList.add(fkjBus);
@@ -93,7 +97,7 @@ public class Facility_busstop extends AppCompatActivity implements OnMapReadyCal
         markersList.add(fpepBus);
         markersList.add(fkiBus);
         markersList.add(onestopBus);
-
+        markersList.add(twinstowerBus);
 
 
         /**create for loop for get the latLngbuilder from the marker list*/
