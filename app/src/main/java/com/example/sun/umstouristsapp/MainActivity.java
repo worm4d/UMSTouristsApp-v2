@@ -35,7 +35,7 @@ public class MainActivity extends RuntimePermissionsActivity{
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
 
-    int IMAGES[] = {R.drawable.ad_apple, R.drawable.ad_clothing, R.drawable.ad_macdonald, R.drawable.ad_mazda, R.drawable.ad_nike, };
+    int IMAGES[] = {R.drawable.ad_1, R.drawable.ad_2, R.drawable.ad_3, R.drawable.ad_4, R.drawable.ad_5, };
     private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
 
     private static final int REQUEST_PERMISSIONS = 20;
