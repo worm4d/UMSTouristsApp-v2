@@ -2,6 +2,7 @@ package com.example.sun.umstouristsapp;
 
 import android.app.ProgressDialog;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -14,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.sun.umstouristsapp.activity.SlideshowDialogFragment;
+import com.example.sun.umstouristsapp.adapter.ChancellorHallAdapter;
 import com.example.sun.umstouristsapp.adapter.GalleryAdapter;
 import com.example.sun.umstouristsapp.app.AppController;
 import com.example.sun.umstouristsapp.model.Image;
@@ -34,44 +36,51 @@ public class Attraction_chancellor_hall_gallery extends AppCompatActivity {
     private GalleryAdapter mAdapter;
     private RecyclerView recyclerView;
 
+    ChancellorHallAdapter adapter;
+    ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attraction_chancellor_hall_gallery);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        viewPager =(ViewPager)findViewById(R.id.view_pager);
+        adapter = new ChancellorHallAdapter(this);
+        viewPager.setAdapter(adapter);
 
-        pDialog = new ProgressDialog(this);
-        images = new ArrayList<>();
-        mAdapter = new GalleryAdapter(getApplicationContext(), images);
+//        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+//
+//        pDialog = new ProgressDialog(this);
+//        images = new ArrayList<>();
+//        mAdapter = new GalleryAdapter(getApplicationContext(), images);
+//
+//        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+//        recyclerView.setLayoutManager(mLayoutManager);
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        recyclerView.setAdapter(mAdapter);
+//
+//        recyclerView.addOnItemTouchListener(new GalleryAdapter.RecyclerTouchListener(getApplicationContext(), recyclerView, new GalleryAdapter.ClickListener() {
+//            @Override
+//            public void onClick(View view, int position) {
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("images", images);
+//                bundle.putInt("position", position);
+//
+//                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//                SlideshowDialogFragment newFragment = SlideshowDialogFragment.newInstance();
+//                newFragment.setArguments(bundle);
+//                newFragment.show(ft, "slideshow");
+//            }
+//
+//            @Override
+//            public void onLongClick(View view, int position) {
+//
+//            }
+//        }));
 
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
-
-        recyclerView.addOnItemTouchListener(new GalleryAdapter.RecyclerTouchListener(getApplicationContext(), recyclerView, new GalleryAdapter.ClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("images", images);
-                bundle.putInt("position", position);
-
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                SlideshowDialogFragment newFragment = SlideshowDialogFragment.newInstance();
-                newFragment.setArguments(bundle);
-                newFragment.show(ft, "slideshow");
-            }
-
-            @Override
-            public void onLongClick(View view, int position) {
-
-            }
-        }));
 
 
-
-        fetchImages();
+//        fetchImages();
     }
 
     private void fetchImages() {

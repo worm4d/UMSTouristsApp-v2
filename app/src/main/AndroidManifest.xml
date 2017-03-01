@@ -105,7 +105,11 @@
         <activity
             android:name=".Attraction_mosque_map"
             android:screenOrientation="portrait" />
-        <activity android:name=".Attraction_chancellor_hall_gallery"></activity>
+        <activity android:name=".Attraction_chancellor_hall_gallery" />
+        <activity android:name=".Attraction_mosque_gallery" />
+        <activity android:name=".Attraction_clock_tower_gallery" />
+        <activity android:name=".Attraction_chancellery_gallery" />
+        <activity android:name=".Attraction_aquarium_gallery"></activity>
     </application>
 
 </manifest>

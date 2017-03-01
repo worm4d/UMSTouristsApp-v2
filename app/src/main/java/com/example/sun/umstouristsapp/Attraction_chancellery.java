@@ -50,12 +50,8 @@ public class Attraction_chancellery extends AppCompatActivity {
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Attraction_chancellery.this);
-                alertDialogBuilder.setTitle("Error");
-                alertDialogBuilder.setMessage("No Image Found");
-                alertDialogBuilder.setIcon(R.drawable.ic_error_black_24dp);
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
+                Intent intent = new Intent(Attraction_chancellery.this, Attraction_chancellery_gallery.class);
+                startActivity(intent);
             }
         });
 
