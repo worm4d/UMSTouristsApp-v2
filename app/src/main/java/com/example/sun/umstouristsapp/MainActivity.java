@@ -183,15 +183,15 @@ public class MainActivity extends RuntimePermissionsActivity{
         menu.setColorFilter(-1);
 
         final PrimaryDrawerItem item1 = new PrimaryDrawerItem().withName("Home");
-        item1.withTextColorRes(R.color.colorButtonGreen);
+        item1.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_home_black_24dp).withIconColor(-1);
         PrimaryDrawerItem item2 = new PrimaryDrawerItem().withName("Settings");
-        item2.withTextColorRes(R.color.colorButtonGreen);
+        item2.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_settings_black_24dp).withIconColor(-1);
         PrimaryDrawerItem item3 = new PrimaryDrawerItem().withName("About Us");
-        item3.withTextColorRes(R.color.colorButtonGreen);
+        item3.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_people_black_24dp).withIconColor(-1);
         PrimaryDrawerItem item4 = new PrimaryDrawerItem().withName("Privacy Policy");
-        item4.withTextColorRes(R.color.colorButtonGreen);
+        item4.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_insert_comment_black_24dp).withIconColor(-1);
         final PrimaryDrawerItem item5 = new PrimaryDrawerItem().withName("Exit");
-        item5.withTextColorRes(R.color.colorButtonGreen);
+        item5.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_cancel_black_24dp).withIconColor(-1);
 
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
@@ -210,6 +210,7 @@ public class MainActivity extends RuntimePermissionsActivity{
 
         final Drawer result = new DrawerBuilder()
                 .withAccountHeader(headerResult)
+                .withDrawerWidthPx(700)
                 .withActivity(MainActivity.this)
                 .withActionBarDrawerToggle(true)
                 .withActionBarDrawerToggleAnimated(true)
