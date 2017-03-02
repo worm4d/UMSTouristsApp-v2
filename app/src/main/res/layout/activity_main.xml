@@ -18,30 +18,38 @@
         android:elevation="4dp"
         android:background="@color/colorHeader">
 
-        <ImageView
-            android:id="@+id/main_menu"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginLeft="12dp"
-            android:tint="@android:color/white"
-            android:src="@drawable/ic_menu_black_24dp"
-            android:visibility="visible"/>
-
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"
-            android:visibility="invisible"/>
+            android:padding="12dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24dp"
+            android:src="@drawable/ic_menu_black_24dp"
+            android:backgroundTint="@color/white"/>
 
-    <TextView
-        android:id="@+id/action_bar_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="UMS Tourist App"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"/>
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@id/menu"
+            android:src="@drawable/logo_ecocampusnew"/>
+
+        <TextView
+            android:id="@+id/action_bar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="UMS Tourist App"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:visibility="gone"/>
+
+        </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
 
