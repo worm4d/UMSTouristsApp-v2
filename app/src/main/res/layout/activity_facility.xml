@@ -58,8 +58,8 @@
             android:layout_height="100dp"
             android:layout_toLeftOf="@id/center_view"
             android:drawableTop="@drawable/ic_local_dining_black_24dp"
-            android:gravity="center"
             android:background="@drawable/button_secondary"
+            android:gravity="center"
             android:text="Cafe"/>
 
         <Button
