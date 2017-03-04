@@ -184,25 +184,55 @@ public class MainActivity extends RuntimePermissionsActivity{
 
         final PrimaryDrawerItem item1 = new PrimaryDrawerItem().withName("Home");
         item1.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_home_black_24dp).withIconColor(-1);
+
         final PrimaryDrawerItem item2 = new PrimaryDrawerItem().withName("Contact Us");
         item2.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_contact_phone_black_24dp).withIconColor(-1);
+        item2.withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+            @Override
+            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                Intent viewintent = new Intent(MainActivity.this,SliderContactUs.class);
+                startActivity(viewintent);
+                return true;
+            }
+        });
+
         PrimaryDrawerItem item3 = new PrimaryDrawerItem().withName("About Us");
+        item3.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_people_black_24dp).withIconColor(-1);
         item3.withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
             @Override
             public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
-                alertDialogBuilder.setTitle("Terms and Condition:");
-                alertDialogBuilder.setMessage(getString(R.string.disclaimer_term_and_condition));
+                alertDialogBuilder.setTitle("Message from the Vice-Chancellor:");
+                alertDialogBuilder.setMessage(getString(R.string.slider_about_us));
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
                 return true;
             }
         });
-        item3.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_people_black_24dp).withIconColor(-1);
+
         PrimaryDrawerItem item4 = new PrimaryDrawerItem().withName("Disclaimer");
+        item4.withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+            @Override
+            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                alertDialogBuilder.setTitle("Terms and Condition:");
+                alertDialogBuilder.setMessage(getString(R.string.slider_disclaimer_term_and_condition));
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+                return true;
+            }
+        });
         item4.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_insert_comment_black_24dp).withIconColor(-1);
+
         final PrimaryDrawerItem item5 = new PrimaryDrawerItem().withName("Exit");
         item5.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_cancel_black_24dp).withIconColor(-1);
+        item5.withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+            @Override
+            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                onBackPressed();
+                return true;
+            }
+        });
 
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
@@ -225,29 +255,6 @@ public class MainActivity extends RuntimePermissionsActivity{
                 .withActionBarDrawerToggle(true)
                 .withActionBarDrawerToggleAnimated(true)
                 .addDrawerItems(item1,item2,item3,item4,item5)
-                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                    @Override
-                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        item2.withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                            @Override
-                            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                                Intent viewintent = new Intent(MainActivity.this,SliderContactUs.class);
-                                startActivity(viewintent);
-                                return true;
-                            }
-                        });
-
-                        item5.withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                            @Override
-                            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                                onBackPressed();
-                                return true;
-                            }
-                        });
-
-                        return false;
-                    }
-                })
                 .build();
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
