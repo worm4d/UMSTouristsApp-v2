@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="F:\Development\Android\UMSTouristsApp-v2\ViewPagerIndicator-Library\src\main\shaders"/></dataSet><dataSet config="debug"><source path="F:\Development\Android\UMSTouristsApp-v2\ViewPagerIndicator-Library\src\debug\shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="F:\Development\UMSTouristsApp-v2\ViewPagerIndicator-Library\src\main\shaders"/></dataSet><dataSet config="debug"><source path="F:\Development\UMSTouristsApp-v2\ViewPagerIndicator-Library\src\debug\shaders"/></dataSet></merger>
