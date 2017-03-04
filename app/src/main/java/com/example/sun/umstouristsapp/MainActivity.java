@@ -187,6 +187,17 @@ public class MainActivity extends RuntimePermissionsActivity{
         final PrimaryDrawerItem item2 = new PrimaryDrawerItem().withName("Contact Us");
         item2.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_contact_phone_black_24dp).withIconColor(-1);
         PrimaryDrawerItem item3 = new PrimaryDrawerItem().withName("About Us");
+        item3.withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+            @Override
+            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                alertDialogBuilder.setTitle("Terms and Condition:");
+                alertDialogBuilder.setMessage(getString(R.string.disclaimer_term_and_condition));
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+                return true;
+            }
+        });
         item3.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_people_black_24dp).withIconColor(-1);
         PrimaryDrawerItem item4 = new PrimaryDrawerItem().withName("Disclaimer");
         item4.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_insert_comment_black_24dp).withIconColor(-1);
