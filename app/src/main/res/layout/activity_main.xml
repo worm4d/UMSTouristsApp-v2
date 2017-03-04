@@ -32,11 +32,11 @@
             android:src="@drawable/ic_menu_black_24dp"
             android:backgroundTint="@color/white"/>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
             android:layout_toRightOf="@id/menu"
-            android:src="@drawable/logo_ecocampusnew"/>
+            android:src="@drawable/logo_ecocampus_green"/>
 
         <TextView
             android:id="@+id/action_bar_title"
