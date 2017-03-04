@@ -184,7 +184,7 @@ public class MainActivity extends RuntimePermissionsActivity{
 
         final PrimaryDrawerItem item1 = new PrimaryDrawerItem().withName("Home");
         item1.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_home_black_24dp).withIconColor(-1);
-        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withName("Contact Us");
+        final PrimaryDrawerItem item2 = new PrimaryDrawerItem().withName("Contact Us");
         item2.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_contact_phone_black_24dp).withIconColor(-1);
         PrimaryDrawerItem item3 = new PrimaryDrawerItem().withName("About Us");
         item3.withTextColorRes(R.color.colorButtonGreen).withIcon(R.drawable.ic_people_black_24dp).withIconColor(-1);
@@ -217,6 +217,15 @@ public class MainActivity extends RuntimePermissionsActivity{
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        item2.withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                            @Override
+                            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                                Intent viewintent = new Intent(MainActivity.this,SliderContactUs.class);
+                                startActivity(viewintent);
+                                return true;
+                            }
+                        });
+
                         item5.withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                             @Override
                             public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
