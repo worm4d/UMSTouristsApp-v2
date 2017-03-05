@@ -81,7 +81,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="12dp"
-                android:text="EcoCampus Visitor Information Centre (EVIC) Jalan UMS, 88400 Kota Kinabalu, Sabah, Malaysia" />
+                android:text="EcoCampus Visitor Information Centre (EVIC) \r\nJalan UMS, 88400 Kota Kinabalu, Sabah, Malaysia" />
 
             <ImageView
                 android:id="@+id/contact_location"
@@ -108,10 +108,11 @@
                     android:layout_weight="0.5"
                     android:layout_gravity="center"
                     android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
                     android:text="Find Us on Social Media"/>
 
                 <ImageView
-                    android:layout_below="@id/title_find_us"
+                    android:id="@+id/icon_fb"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -142,6 +143,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
                     android:text="Contact"/>
                 <TextView
                     android:layout_width="match_parent"
@@ -153,12 +155,13 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
                     android:text="Email"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="www.ums.edu.my/"/>
+                    android:text="ecocampus@ums.edu.my"/>
 
             </LinearLayout>
 
@@ -170,12 +173,14 @@
                 android:weightSum="2">
 
                 <ImageView
+                    android:id="@+id/contact_call"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@drawable/ic_phone_black_24dp" />
 
                 <ImageView
+                    android:id="@+id/contact_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
