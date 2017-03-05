@@ -110,7 +110,8 @@
         <activity android:name=".Attraction_clock_tower_gallery" />
         <activity android:name=".Attraction_chancellery_gallery" />
         <activity android:name=".Attraction_aquarium_gallery" />
-        <activity android:name=".SliderContactUs"></activity>
+        <activity android:name=".SliderContactUs" />
+        <activity android:name=".EvicUms_map"></activity>
     </application>
 
 </manifest>

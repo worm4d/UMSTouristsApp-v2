@@ -29,70 +29,79 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="EcoCampus Visitor Information Centre (EVIC)"
-            android:textAllCaps="true"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="22sp" />
 
     </android.support.v7.widget.Toolbar>
 
-    <ImageView
-        android:id="@+id/evic_detail_imageview"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/main_toolbar"
-        android:adjustViewBounds="true"
-        android:contentDescription="SampleImage"
-        android:scaleType="centerCrop"
-        android:src="@drawable/evic_centre"/>
-
-
-    <View
-        android:id="@+id/center_view"
-        android:layout_width="0dp"
-        android:layout_height="50sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        />
-
-    <Button
-        android:id="@+id/main_activities"
-        android:layout_margin="12dp"
-        android:layout_width="160dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@id/center_view"
-        android:drawableLeft="@drawable/ic_directions_bike_black_24dp"
-        android:paddingLeft="24dp"
-        android:gravity="center"
-        android:background="@drawable/button_secondary"
-        android:text="Activities"/>
-
-
-    <Button
-        android:id="@+id/main_open_days"
-        android:layout_margin="12dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/center_view"
-        android:drawableLeft="@drawable/ic_access_time_black_24dp"
-        android:paddingLeft="24dp"
-        android:gravity="center"
-        android:background="@drawable/button_secondary"
-        android:text="Open days"/>
-
-    <TextView
-        android:id="@+id/details_txt"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/evic_detail_imageview"
-        android:layout_above="@id/center_view"
-        android:maxLines = "99"
-        android:scrollbars = "vertical"
-        android:gravity="center"
-        android:textSize="18dp"
-        android:textColor="@color/colorBlack"
-        android:text="@string/evic_ums" />
+        android:layout_below="@id/main_toolbar"
+        android:orientation="vertical"
+        android:weightSum="6">
 
+
+            <ImageView
+                android:id="@+id/evic_detail_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:adjustViewBounds="true"
+                android:contentDescription="SampleImage"
+                android:scaleType="centerCrop"
+                android:src="@drawable/evic_centre"/>
+
+            <TextView
+                android:id="@+id/details_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:padding="12dp"
+                android:maxLines = "99"
+                android:scrollbars = "vertical"
+                android:gravity="center_vertical"
+                android:textSize="18dp"
+                android:textColor="@color/colorBlack"
+                android:text="@string/evic_ums" />
+
+
+        <LinearLayout
+            android:id="@+id/footer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/main_activities"
+                android:layout_margin="12dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_directions_bike_black_24dp"
+                android:paddingLeft="24dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_secondary"
+                android:text="Activities"/>
+
+
+            <Button
+                android:id="@+id/main_map"
+                android:layout_margin="12dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_pin_drop_black_24dp"
+                android:paddingLeft="24dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_secondary"
+                android:text="Map"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>
