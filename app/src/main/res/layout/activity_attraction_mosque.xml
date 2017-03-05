@@ -36,65 +36,86 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <ImageView
-        android:id="@+id/attraction_detail_imageview"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+    <LinearLayout
         android:layout_below="@id/main_toolbar"
-        android:adjustViewBounds="true"
-        android:contentDescription="SampleImage"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ums_masjid_resize"/>
-
-
-    <View
-        android:id="@+id/center_view"
-        android:layout_width="0dp"
-        android:layout_height="50sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        />
-
-    <Button
-        android:id="@+id/main_gallery"
-        android:layout_margin="12dp"
-        android:layout_width="160dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@id/center_view"
-        android:drawableLeft="@drawable/ic_insert_photo_black_24dp"
-        android:paddingLeft="24dp"
-        android:gravity="center"
-        android:background="@drawable/button_secondary"
-        android:textAllCaps="false"
-        android:text="Gallery"/>
-
-
-    <Button
-        android:id="@+id/main_map"
-        android:layout_margin="12dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/center_view"
-        android:drawableLeft="@drawable/ic_pin_drop_black_24dp"
-        android:paddingLeft="24dp"
-        android:gravity="center"
-        android:background="@drawable/button_secondary"
-        android:textAllCaps="false"
-        android:text="Map"/>
-
-    <TextView
-        android:id="@+id/details_txt"
-        android:layout_below="@id/attraction_detail_imageview"
-        android:layout_above="@id/main_gallery"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:maxLines = "99"
-        android:scrollbars = "vertical"
-        android:padding="12dp"
-        android:textSize="18dp"
-        android:textColor="@color/colorBlack"
-        android:text="@string/attraction_mosque"/>
+        android:weightSum="7"
+        android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/attraction_detail_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ums_masjid_resize"/>
+
+        <TextView
+            android:id="@+id/details_txt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.5"
+            android:maxLines = "99"
+            android:scrollbars = "vertical"
+            android:paddingTop="12dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="6dp"
+            android:textSize="18dp"
+            android:textColor="@color/colorBlack"
+            android:text="@string/attraction_mosque"/>
+
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:scaleX=".6"
+            android:scaleY=".6"
+            android:max="5"
+            android:rating="5"
+            android:stepSize="1"
+            android:isIndicator="true"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/main_gallery"
+                android:layout_margin="12dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_insert_photo_black_24dp"
+                android:paddingLeft="24dp"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/button_secondary"
+                android:textAllCaps="false"
+                android:text="Gallery"/>
+
+
+            <Button
+                android:id="@+id/main_map"
+                android:layout_margin="12dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_pin_drop_black_24dp"
+                android:paddingLeft="24dp"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/button_secondary"
+                android:textAllCaps="false"
+                android:text="Map"/>
+
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
