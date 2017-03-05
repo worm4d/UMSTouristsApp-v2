@@ -254,7 +254,7 @@ public class MainActivity extends RuntimePermissionsActivity{
                 .withActivity(MainActivity.this)
                 .withActionBarDrawerToggle(true)
                 .withActionBarDrawerToggleAnimated(true)
-                .addDrawerItems(item1,item2,item3,item4,item5)
+                .addDrawerItems(item1,item2,item4,item5)
                 .build();
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
