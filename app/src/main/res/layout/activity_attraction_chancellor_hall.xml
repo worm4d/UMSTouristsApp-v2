@@ -29,8 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="CHANCELLOR HALL"
-            android:textAllCaps="true"
+            android:text="Chancellor Hall"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="24sp" />
 
@@ -66,6 +66,7 @@
         android:paddingLeft="24dp"
         android:gravity="center"
         android:background="@drawable/button_secondary"
+        android:textAllCaps="false"
         android:text="Gallery"/>
 
 
@@ -79,6 +80,7 @@
         android:drawableLeft="@drawable/ic_pin_drop_black_24dp"
         android:paddingLeft="24dp"
         android:gravity="center"
+        android:textAllCaps="false"
         android:background="@drawable/button_secondary"
         android:text="Map"/>
 
@@ -90,7 +92,7 @@
         android:layout_height="match_parent"
         android:maxLines = "99"
         android:scrollbars = "vertical"
-        android:gravity="center"
+        android:padding="12dp"
         android:textSize="18dp"
         android:textColor="@color/colorBlack"
         android:text="@string/attraction_chancellor_hall"/>

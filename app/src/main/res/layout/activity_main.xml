@@ -101,7 +101,7 @@
         android:paddingLeft="24dp"
         android:gravity="center"
         android:background="@drawable/button_secondary"
-
+        android:textAllCaps="false"
         android:text="Camera"/>
 
     <!--<ImageView-->
@@ -123,6 +123,7 @@
         android:paddingLeft="24dp"
         android:gravity="center"
         android:background="@drawable/button_secondary"
+        android:textAllCaps="false"
         android:text="Map"/>
 
     <!--<ImageView-->
@@ -149,7 +150,8 @@
             android:layout_centerInParent="true"
             android:background="@drawable/button_main"
             android:textColor="#FFFFFF"
-            android:text="ATTRACTION"/>
+            android:textAllCaps="false"
+            android:text="Attraction"/>
 
         <Button
             android:id="@+id/main_facility"
@@ -159,7 +161,8 @@
             android:layout_below="@id/main_attraction"
             android:background="@drawable/button_main"
             android:textColor="#FFFFFF"
-            android:text="FACILITY"/>
+            android:textAllCaps="false"
+            android:text="Facility"/>
 
         <Button
             android:id="@+id/main_evic"

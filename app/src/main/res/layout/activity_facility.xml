@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Facility"
-            android:textAllCaps="true"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="24sp" />
 
@@ -58,8 +58,9 @@
             android:layout_height="100dp"
             android:layout_toLeftOf="@id/center_view"
             android:drawableTop="@drawable/ic_local_dining_black_24dp"
-            android:background="@drawable/button_secondary"
+            android:background="@drawable/button_main"
             android:gravity="center"
+            android:textAllCaps="false"
             android:text="Cafe"/>
 
         <Button
@@ -70,7 +71,8 @@
             android:layout_toRightOf="@id/center_view"
             android:drawableTop="@drawable/ic_wc_black_24dp"
             android:gravity="center"
-            android:background="@drawable/button_secondary"
+            android:background="@drawable/button_main"
+            android:textAllCaps="false"
             android:text="Rest Room"/>
 
         <Button
@@ -82,7 +84,8 @@
             android:layout_toLeftOf="@id/center_view"
             android:drawableTop="@drawable/ic_local_atm_black_24dp"
             android:gravity="center"
-            android:background="@drawable/button_secondary"
+            android:background="@drawable/button_main"
+            android:textAllCaps="false"
             android:text="ATM"/>
 
         <Button
@@ -94,7 +97,8 @@
             android:layout_below="@id/restroom_logo"
             android:drawableTop="@drawable/ic_directions_bus_black_24dp"
             android:gravity="center"
-            android:background="@drawable/button_secondary"
+            android:background="@drawable/button_main"
+            android:textAllCaps="false"
             android:text="Bus Stop"/>
 
     </RelativeLayout>

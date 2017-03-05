@@ -29,8 +29,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="AQUARIUM AND MUSEUM"
-            android:textAllCaps="true"
+            android:text="Aquarium And Museum
+"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="24sp" />
 
@@ -66,6 +67,7 @@
         android:paddingLeft="24dp"
         android:gravity="center"
         android:background="@drawable/button_secondary"
+        android:textAllCaps="false"
         android:text="Gallery"/>
 
 
@@ -80,6 +82,7 @@
         android:paddingLeft="24dp"
         android:gravity="center"
         android:background="@drawable/button_secondary"
+        android:textAllCaps="false"
         android:text="Map"/>
 
     <TextView
@@ -90,7 +93,7 @@
         android:layout_height="match_parent"
         android:maxLines = "99"
         android:scrollbars = "vertical"
-        android:gravity="center"
+        android:padding="12dp"
         android:textSize="18dp"
         android:textColor="@color/colorBlack"
         android:text="@string/attraction_aquarium_and_museum"/>
