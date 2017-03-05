@@ -14,15 +14,15 @@
         android:layout_centerInParent="true"
         android:src="@drawable/visit_ums" />
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:textSize="16dp"
-        android:textColor="#454545"
-        android:gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:text="UMS strives to be an innovative university of global standing." />
+    <!--<TextView-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:textSize="16dp"-->
+        <!--android:textColor="#454545"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:text="UMS strives to be an innovative university of global standing." />-->
 
 
 </RelativeLayout>
