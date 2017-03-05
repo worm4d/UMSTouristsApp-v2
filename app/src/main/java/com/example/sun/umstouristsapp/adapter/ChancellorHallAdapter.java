@@ -42,9 +42,10 @@ public class ChancellorHallAdapter extends PagerAdapter {
         inflater =(LayoutInflater)ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.attraction_swipe,container,false);
         ImageView img = (ImageView)v.findViewById(R.id.imageView);
-//        TextView tv = (TextView)v.findViewById(R.id.textView);
+        TextView tv = (TextView)v.findViewById(R.id.textView);
         img.setImageResource(imgs[position]);
-//        tv.setText("Image :"+position);
+        position = position +1;
+        tv.setText("Image :"+position+"/5");
         container.addView(v);
         return v;
     }
