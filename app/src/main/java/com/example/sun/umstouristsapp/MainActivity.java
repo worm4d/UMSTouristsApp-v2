@@ -1,10 +1,14 @@
 package com.example.sun.umstouristsapp;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Environment;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +31,11 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.viewpagerindicator.CirclePageIndicator;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -38,6 +47,7 @@ public class MainActivity extends RuntimePermissionsActivity{
     Toolbar toolbar;
     ImageView imageView, menu;
     private static ViewPager mPager;
+    private int REQUEST_CAMERA = 0;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
 
@@ -110,8 +120,8 @@ public class MainActivity extends RuntimePermissionsActivity{
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                startActivity(intent);
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, REQUEST_CAMERA);
             }
         });
 
@@ -136,6 +146,16 @@ public class MainActivity extends RuntimePermissionsActivity{
 
 
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == REQUEST_CAMERA)
+                onCaptureImageResult(data);
+        }
     }
 
     @Override
@@ -331,6 +351,32 @@ public class MainActivity extends RuntimePermissionsActivity{
 
             }
         });
+
+    }
+
+    private void onCaptureImageResult(Intent data) {
+        Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+
+        File destination = new File(Environment.getExternalStorageDirectory(),
+                System.currentTimeMillis() + ".jpg");
+
+        FileOutputStream fo;
+        try {
+            destination.createNewFile();
+            fo = new FileOutputStream(destination);
+            fo.write(bytes.toByteArray());
+            fo.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Intent i1=new Intent(MainActivity.this,MyCameraActivity.class);
+        i1.putExtra("data",thumbnail);
+        startActivity(i1);
 
     }
 }
