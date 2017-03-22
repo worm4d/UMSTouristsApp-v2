@@ -10,11 +10,21 @@ import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.daimajia.slider.library.Tricks.ViewPagerEx;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -27,13 +37,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
 
-public class MainActivity extends RuntimePermissionsActivity{
+public class MainActivity extends RuntimePermissionsActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
 
     Button newAttraction, newFacility, newAdmin, newPackage, newEVIC;
     Button camera, map;
     Toolbar toolbar;
     ImageView imageView, menu;
+    private SliderLayout sliderLayout;
+    private DatabaseReference mFirebaseDatabase;
+
     private int REQUEST_CAMERA = 0;
 
     private static final int REQUEST_PERMISSIONS = 20;
@@ -45,6 +59,56 @@ public class MainActivity extends RuntimePermissionsActivity{
 
         toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         toolbar.setTitleTextColor(-1);
+        sliderLayout = (SliderLayout) findViewById(R.id.slideshow);
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference().child("advertisement");
+        mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String ad_0 = dataSnapshot.child("0").child("ad_ImageURL").getValue().toString();
+                String ad_1 = dataSnapshot.child("1").child("ad_ImageURL").getValue().toString();
+                String ad_2 = dataSnapshot.child("2").child("ad_ImageURL").getValue().toString();
+                String ad_3 = dataSnapshot.child("3").child("ad_ImageURL").getValue().toString();
+                String ad_4 = dataSnapshot.child("4").child("ad_ImageURL").getValue().toString();
+
+                HashMap<String,String> url_maps = new HashMap<String, String>();
+                url_maps.put("Hannibal", ad_3);
+                url_maps.put("Big Bang Theory", ad_1);
+                url_maps.put("House of Cards", ad_4);
+                url_maps.put("Game of Thrones", ad_0);
+                url_maps.put("Deadpool", ad_2);
+
+                for(String name : url_maps.keySet()){
+                    TextSliderView textSliderView = new TextSliderView(getApplicationContext());
+                    // initialize a SliderLayout
+                    textSliderView
+//                    .description(name)
+                            .image(url_maps.get(name))
+                            .setScaleType(BaseSliderView.ScaleType.Fit)
+                            .setOnSliderClickListener(MainActivity.this);
+
+                    //add your extra information
+                    textSliderView.bundle(new Bundle());
+                    textSliderView.getBundle()
+                            .putString("extra",name);
+
+                    sliderLayout.addSlider(textSliderView);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+        sliderLayout.setPresetTransformer(SliderLayout.Transformer.Default);
+        sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+//        sliderLayout.setCustomAnimation(new DescriptionAnimation());
+        sliderLayout.setDuration(4000);
+        sliderLayout.addOnPageChangeListener(this);
 
         clickMenu();
 
@@ -275,4 +339,28 @@ public class MainActivity extends RuntimePermissionsActivity{
         startActivity(i1);
 
     }
+
+    @Override
+    protected void onStop() {
+        // To prevent a memory leak on rotation, make sure to call stopAutoCycle() on the slider before activity or fragment is destroyed
+        sliderLayout.stopAutoCycle();
+        super.onStop();
+    }
+
+    @Override
+    public void onSliderClick(BaseSliderView slider) {
+//        Toast.makeText(this,slider.getBundle().get("extra") + "",Toast.LENGTH_SHORT).show();
+    }
+
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+
+    @Override
+    public void onPageSelected(int position) {
+        Log.d("Slider Demo", "Page Changed: " + position);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {}
 }
