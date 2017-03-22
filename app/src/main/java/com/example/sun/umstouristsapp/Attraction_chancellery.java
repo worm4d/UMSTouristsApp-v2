@@ -1,7 +1,6 @@
 package com.example.sun.umstouristsapp;
 
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -10,16 +9,27 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class Attraction_chancellery extends AppCompatActivity {
 
     private TextView detailsTxt;
-    private ImageView backBtn;
+    private ImageView backBtn, detailsImage;
     private Button map, gallery;
+    private DatabaseReference mFirebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attraction_chancellery);
+
+        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference().child("attraction").child("2");
+        detailsImage = (ImageView) findViewById(R.id.attraction_detail_imageview);
 
         detailsTxt = (TextView) findViewById(R.id.details_txt);
         detailsTxt.setMovementMethod(new ScrollingMovementMethod());
@@ -52,6 +62,26 @@ public class Attraction_chancellery extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Attraction_chancellery.this, Attraction_chancellery_gallery.class);
                 startActivity(intent);
+            }
+        });
+
+        mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String detailAttraction = dataSnapshot.child("att_Det").getValue().toString();
+                String imageAttraction = dataSnapshot.child("att_ImageURL").child("0").getValue().toString();
+
+                detailsTxt.setText(detailAttraction);
+                Glide.with(getApplicationContext())
+                        .load(imageAttraction)
+                        .into(detailsImage)
+                ;
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
 
