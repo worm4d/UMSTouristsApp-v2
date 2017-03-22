@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "698271519908",
+    "firebase_url": "https://ums-eco-campus-a-1486986690367.firebaseio.com",
+    "project_id": "ums-eco-campus-a-1486986690367",
+    "storage_bucket": "ums-eco-campus-a-1486986690367.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698271519908:android:925c0adb5b5a875c",
+        "android_client_info": {
+          "package_name": "com.example.sun.umstouristsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "698271519908-d1gkees3r60i6gpan7t7ba9q4qtgp1ed.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx037pXPhLa706vEEJjYKwq7Rl94lwxjM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
