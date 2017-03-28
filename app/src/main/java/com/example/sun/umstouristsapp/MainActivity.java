@@ -42,9 +42,9 @@ import java.util.HashMap;
 public class MainActivity extends RuntimePermissionsActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
 
     Button newAttraction, newFacility, newAdmin, newPackage, newEVIC;
-    Button camera, map;
+    Button map;
     Toolbar toolbar;
-    ImageView imageView, menu;
+    ImageView imageView, menu, camera;
     private SliderLayout sliderLayout;
     private DatabaseReference mFirebaseDatabase;
 
@@ -114,9 +114,8 @@ public class MainActivity extends RuntimePermissionsActivity implements BaseSlid
 
         newAttraction = (Button) findViewById(R.id.main_attraction);
         newFacility = (Button) findViewById(R.id.main_facility);
-        newPackage = (Button) findViewById(R.id.main_packages);
         newEVIC = (Button) findViewById(R.id.main_evic);
-        camera = (Button) findViewById(R.id.main_camera);
+        camera = (ImageView) findViewById(R.id.main_camera);
         map = (Button) findViewById(R.id.main_map);
 
 
@@ -132,14 +131,6 @@ public class MainActivity extends RuntimePermissionsActivity implements BaseSlid
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,Facility.class);
-                startActivity(intent);
-            }
-        });
-
-        newPackage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Packages.class);
                 startActivity(intent);
             }
         });
