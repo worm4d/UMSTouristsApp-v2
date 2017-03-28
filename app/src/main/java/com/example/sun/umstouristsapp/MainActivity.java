@@ -5,11 +5,14 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.location.Address;
+import android.location.Location;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +23,8 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
+import com.example.sun.umstouristsapp.service.MyService;
+import com.google.android.gms.location.DetectedActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,7 +42,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+import io.nlopez.smartlocation.OnActivityUpdatedListener;
+import io.nlopez.smartlocation.OnLocationUpdatedListener;
+import io.nlopez.smartlocation.OnReverseGeocodingListener;
+import io.nlopez.smartlocation.SmartLocation;
+import io.nlopez.smartlocation.location.providers.LocationGooglePlayServicesProvider;
 
 public class MainActivity extends RuntimePermissionsActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
 
@@ -47,6 +60,8 @@ public class MainActivity extends RuntimePermissionsActivity implements BaseSlid
     ImageView imageView, menu, camera;
     private SliderLayout sliderLayout;
     private DatabaseReference mFirebaseDatabase;
+    private LocationGooglePlayServicesProvider provider;
+
 
     private int REQUEST_CAMERA = 0;
 
@@ -56,6 +71,7 @@ public class MainActivity extends RuntimePermissionsActivity implements BaseSlid
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        startLocation();
 
         toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         toolbar.setTitleTextColor(-1);
@@ -354,4 +370,54 @@ public class MainActivity extends RuntimePermissionsActivity implements BaseSlid
 
     @Override
     public void onPageScrollStateChanged(int state) {}
+
+    private void startLocation(){
+        Intent intent = new Intent(this, MyService.class);
+        startService(intent);
+        provider = new LocationGooglePlayServicesProvider();
+        SmartLocation smartLocation = new SmartLocation.Builder(this).logging(true).build();
+
+        smartLocation.location(provider).start(new OnLocationUpdatedListener() {
+            @Override
+            public void onLocationUpdated(Location location) {
+                showLocation(location);
+            }
+        });
+        smartLocation.activity().start(new OnActivityUpdatedListener() {
+            @Override
+            public void onActivityUpdated(DetectedActivity detectedActivity) {
+
+            }
+        });
+    }
+
+    private void showLocation(Location location) {
+        if (location != null) {
+            final String text = String.format("Latitude %.6f, Longitude %.6f",
+                    location.getLatitude(),
+                    location.getLongitude());
+            Log.d("smartlocation", "showLocation: " + text);
+//            locationText.setText(text);
+
+            // We are going to get the address for the current position
+            SmartLocation.with(this).geocoding().reverse(location, new OnReverseGeocodingListener() {
+                @Override
+                public void onAddressResolved(Location original, List<Address> results) {
+                    if (results.size() > 0) {
+                        Address result = results.get(0);
+                        StringBuilder builder = new StringBuilder(text);
+                        builder.append("\n[Reverse Geocoding] ");
+                        List<String> addressElements = new ArrayList<>();
+                        for (int i = 0; i <= result.getMaxAddressLineIndex(); i++) {
+                            addressElements.add(result.getAddressLine(i));
+                        }
+                        builder.append(TextUtils.join(", ", addressElements));
+//                        locationText.setText(builder.toString());
+                    }
+                }
+            });
+        } else {
+//            locationText.setText("Null location");
+        }
+    }
 }
