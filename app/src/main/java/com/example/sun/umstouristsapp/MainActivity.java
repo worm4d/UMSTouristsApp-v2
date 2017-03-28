@@ -2,6 +2,10 @@ package com.example.sun.umstouristsapp;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,6 +15,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
@@ -25,6 +30,7 @@ import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.sun.umstouristsapp.service.MyService;
 import com.google.android.gms.location.DetectedActivity;
+import com.google.android.gms.location.Geofence;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -47,9 +53,12 @@ import java.util.HashMap;
 import java.util.List;
 
 import io.nlopez.smartlocation.OnActivityUpdatedListener;
+import io.nlopez.smartlocation.OnGeofencingTransitionListener;
 import io.nlopez.smartlocation.OnLocationUpdatedListener;
 import io.nlopez.smartlocation.OnReverseGeocodingListener;
 import io.nlopez.smartlocation.SmartLocation;
+import io.nlopez.smartlocation.geofencing.model.GeofenceModel;
+import io.nlopez.smartlocation.geofencing.utils.TransitionGeofence;
 import io.nlopez.smartlocation.location.providers.LocationGooglePlayServicesProvider;
 
 public class MainActivity extends RuntimePermissionsActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
@@ -392,11 +401,92 @@ public class MainActivity extends RuntimePermissionsActivity implements BaseSlid
     }
 
     private void showLocation(Location location) {
+        double currentLatitude = location.getLatitude();
+        double currentLongitude = location.getLongitude();
+        Location currentLocation = new Location("Current Location");
+        currentLocation.setLatitude(currentLatitude);
+        currentLocation.setLongitude(currentLongitude);
+
+        Location locationAqua = new Location("Aquarium & Marine Museum");
+        locationAqua.setLatitude(6.039858);
+        locationAqua.setLongitude(116.112751);
+
+        double distanceAqua = locationAqua.distanceTo(currentLocation);
+        if (distanceAqua <= 200) {
+            NotificationBuilder("Aquarium & Marine Museum");
+            Log.d("smartNum", "distanceAqua: " + distanceAqua);
+        }
+
+        Location locationDC = new Location("Dewan Canselor UMS");
+        locationDC.setLatitude(6.036401);
+        locationDC.setLongitude(116.118580);
+
+        double distanceDC = locationDC.distanceTo(currentLocation);
+        if (distanceDC <= 200) {
+            NotificationBuilder("Dewan Canselor UMS");
+            Log.d("smartNum", "distanceDC: " + distanceDC);
+        }
+
+        Location locationCanselori = new Location("Canselori UMS");
+        locationCanselori.setLatitude(6.036503);
+        locationCanselori.setLongitude(116.115639);
+
+        double distanceCanselori = locationCanselori.distanceTo(currentLocation);
+        if (distanceCanselori <= 200) {
+            NotificationBuilder("Canselori UMS");
+            Log.d("smartNum", "distanceCanselori: " + distanceCanselori);
+        }
+
+        Location locationLibrary = new Location("UMS Library");
+        locationLibrary.setLatitude(6.034358);
+        locationLibrary.setLongitude(116.117660);
+
+        double distanceLibrary = locationLibrary.distanceTo(currentLocation);
+        if (distanceLibrary <= 200) {
+            NotificationBuilder("UMS Library");
+            Log.d("smartNum", "distanceLibrary: " + distanceLibrary);
+        }
+
+        Location locationClock = new Location("Clock Tower UMS");
+        locationClock.setLatitude(6.034606);
+        locationClock.setLongitude(116.119632);
+
+        double distanceClock = locationClock.distanceTo(currentLocation);
+        if (distanceClock <= 200) {
+            NotificationBuilder("Clock Tower UMS");
+            Log.d("smartNum", "distanceClock: " + distanceClock);
+        }
+        /*
+        6.039858, 116.112751)).title("Aquarium & Marine Museum"));
+        6.036401, 116.118580)).title("Dewan Canselor UMS"));
+        6.036503, 116.115639)).title("Canselori UMS"));
+        6.034358, 116.117660)).title("UMS Library"));
+        6.043048, 116.111757)).title("UMS ODEC Beach"));
+        6.042461, 116.119541)).title("UMS Peak"));
+        6.038148, 116.125190)).title("Mosque UMS"));
+        6.034606, 116.119632)).title("Clock Tower UMS"));
+        6.032509, 116.121645)).title("EcoCampus Visitor Information Centre"));
+        6.042852, 116.127930)).title("Kompleks Sukan UMS"));
+        */
         if (location != null) {
             final String text = String.format("Latitude %.6f, Longitude %.6f",
                     location.getLatitude(),
                     location.getLongitude());
+
+
+            float[] dist = new float[1];
+            Location.distanceBetween(location.getLatitude(),location.getLongitude(),6.039858, 116.112751,dist);
+            if(dist[0]/1000 < 0.2){
+                //here your code or alert box for outside 1Km radius area
+//                NotificationBuilder();
+            }
+
             Log.d("smartlocation", "showLocation: " + text);
+
+            Log.d("smartDist", "showDist: " + dist[0]/1000);
+//            if (location.getLatitude() == 5.00) {
+//                NotificationBuilder();
+//            }
 //            locationText.setText(text);
 
             // We are going to get the address for the current position
@@ -419,5 +509,28 @@ public class MainActivity extends RuntimePermissionsActivity implements BaseSlid
         } else {
 //            locationText.setText("Null location");
         }
+    }
+
+
+    private void NotificationBuilder(String name) {
+        Intent intent = new Intent(this, MainActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder b = new NotificationCompat.Builder(this);
+
+        b.setAutoCancel(true)
+                .setDefaults(Notification.DEFAULT_ALL)
+                .setWhen(System.currentTimeMillis())
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setTicker("Hearty365")
+                .setContentTitle("You are now nearby to")
+                .setContentText(name)
+                .setDefaults(Notification.DEFAULT_LIGHTS| Notification.DEFAULT_SOUND)
+                .setContentIntent(contentIntent)
+                .setContentInfo("Info");
+
+
+        NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(1, b.build());
     }
 }
