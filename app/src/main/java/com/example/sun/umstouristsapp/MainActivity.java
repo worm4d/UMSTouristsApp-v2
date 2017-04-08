@@ -28,6 +28,7 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
+import com.example.sun.umstouristsapp.model.advertisementModel;
 import com.example.sun.umstouristsapp.service.MyService;
 import com.google.android.gms.location.DetectedActivity;
 import com.google.android.gms.location.Geofence;
@@ -42,13 +43,16 @@ import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -67,6 +71,7 @@ public class MainActivity extends RuntimePermissionsActivity implements BaseSlid
     Button map;
     Toolbar toolbar;
     ImageView imageView, menu, camera;
+    List<advertisementModel> modelList;
     private SliderLayout sliderLayout;
     private DatabaseReference mFirebaseDatabase;
     private LocationGooglePlayServicesProvider provider;
@@ -82,58 +87,11 @@ public class MainActivity extends RuntimePermissionsActivity implements BaseSlid
         setContentView(R.layout.activity_main);
         startLocation();
 
+        modelList = new ArrayList<>();
         toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         toolbar.setTitleTextColor(-1);
         sliderLayout = (SliderLayout) findViewById(R.id.slideshow);
         mFirebaseDatabase = FirebaseDatabase.getInstance().getReference().child("advertisement");
-        mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String ad_0 = dataSnapshot.child("0").child("ad_ImageURL").getValue().toString();
-                String ad_1 = dataSnapshot.child("1").child("ad_ImageURL").getValue().toString();
-                String ad_2 = dataSnapshot.child("2").child("ad_ImageURL").getValue().toString();
-                String ad_3 = dataSnapshot.child("3").child("ad_ImageURL").getValue().toString();
-                String ad_4 = dataSnapshot.child("4").child("ad_ImageURL").getValue().toString();
-
-                HashMap<String,String> url_maps = new HashMap<String, String>();
-                url_maps.put("Hannibal", ad_3);
-                url_maps.put("Big Bang Theory", ad_1);
-                url_maps.put("House of Cards", ad_4);
-                url_maps.put("Game of Thrones", ad_0);
-                url_maps.put("Deadpool", ad_2);
-
-                for(String name : url_maps.keySet()){
-                    TextSliderView textSliderView = new TextSliderView(getApplicationContext());
-                    // initialize a SliderLayout
-                    textSliderView
-//                    .description(name)
-                            .image(url_maps.get(name))
-                            .setScaleType(BaseSliderView.ScaleType.Fit)
-                            .setOnSliderClickListener(MainActivity.this);
-
-                    //add your extra information
-                    textSliderView.bundle(new Bundle());
-                    textSliderView.getBundle()
-                            .putString("extra",name);
-
-                    sliderLayout.addSlider(textSliderView);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-
-        sliderLayout.setPresetTransformer(SliderLayout.Transformer.Default);
-        sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
-//        sliderLayout.setCustomAnimation(new DescriptionAnimation());
-        sliderLayout.setDuration(4000);
-        sliderLayout.addOnPageChangeListener(this);
 
         clickMenu();
 
@@ -185,6 +143,37 @@ public class MainActivity extends RuntimePermissionsActivity implements BaseSlid
         });
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                sliderLayout.removeAllSliders();
+                for (DataSnapshot advertisementSnapshot : dataSnapshot.getChildren() ) {
+
+                    TextSliderView textSliderView = new TextSliderView(getApplicationContext());
+
+                    textSliderView.image(advertisementSnapshot.child("ad_ImageURL").getValue().toString());
+//
+                    sliderLayout.addSlider(textSliderView);
+                }
+                sliderLayout.setPresetTransformer(SliderLayout.Transformer.Default);
+                sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+//        sliderLayout.setCustomAnimation(new DescriptionAnimation());
+                sliderLayout.setDuration(4000);
+                sliderLayout.addOnPageChangeListener(MainActivity.this);
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
@@ -456,18 +445,7 @@ public class MainActivity extends RuntimePermissionsActivity implements BaseSlid
             NotificationBuilder("Clock Tower UMS");
             Log.d("smartNum", "distanceClock: " + distanceClock);
         }
-        /*
-        6.039858, 116.112751)).title("Aquarium & Marine Museum"));
-        6.036401, 116.118580)).title("Dewan Canselor UMS"));
-        6.036503, 116.115639)).title("Canselori UMS"));
-        6.034358, 116.117660)).title("UMS Library"));
-        6.043048, 116.111757)).title("UMS ODEC Beach"));
-        6.042461, 116.119541)).title("UMS Peak"));
-        6.038148, 116.125190)).title("Mosque UMS"));
-        6.034606, 116.119632)).title("Clock Tower UMS"));
-        6.032509, 116.121645)).title("EcoCampus Visitor Information Centre"));
-        6.042852, 116.127930)).title("Kompleks Sukan UMS"));
-        */
+
         if (location != null) {
             final String text = String.format("Latitude %.6f, Longitude %.6f",
                     location.getLatitude(),
